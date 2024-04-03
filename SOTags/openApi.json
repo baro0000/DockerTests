@@ -1,0 +1,88 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Stack Overflow Tags",
+    "description": "An API to get list of tags from Stack Overflow API",
+    "contact": {
+      "name": "Bartosz Kuliński",
+      "email": "bartosz.kulinski.it@gmail.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/Tags": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Get all tags from database",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Update database with data downloaded from Stack Overflow API",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Tags/Paged": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Get tags in page view",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Integer",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Integer value: 10 / 30 / 50",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sortByName",
+            "in": "query",
+            "description": "ASC or DESC",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortByCount",
+            "in": "query",
+            "description": "ASC or DESC",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

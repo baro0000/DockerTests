@@ -1,0 +1,32 @@
+version: '3.4'
+
+networks:
+    sotagsapp:
+
+services:
+  sotagsdb:
+    container_name: app-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - 8002:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=password12345#
+    networks:
+      - sotagsapp
+  sotags:
+    container_name: sotagsapp
+    image: ${DOCKER_REGISTRY-}sotags
+    build:
+      context: .
+      dockerfile: SOTags/Dockerfile
+    ports:
+      - 8001:8080
+    depends_on:
+      - sotagsdb
+    environment:
+      - DB_HOST=sotagsdb
+      - DB_NAME=SOTagsApp
+      - DB_SA_PASSWORD=password12345#
+    networks:
+      - sotagsapp

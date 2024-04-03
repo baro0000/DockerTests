@@ -1,0 +1,6 @@
+2024-04-03 20:20:32.5795 Info Registered target NLog.Targets.FileTarget(Name=allfile)
+2024-04-03 20:20:32.6115 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-04-03 20:20:32.6115 Info Registered target NLog.Targets.ConsoleTarget(Name=lifetimeConsole)
+2024-04-03 20:20:32.6561 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-04-03 20:20:32.6721 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=54, FilePath=/app/NLog.config
+2024-04-03 20:20:32.6828 Info Configuration initialized.
