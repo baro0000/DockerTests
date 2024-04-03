@@ -5,7 +5,7 @@ networks:
 
 services:
   sotagsdb:
-    container_name: app-db
+    container_name: sotags-app-db
     image: mcr.microsoft.com/mssql/server:2022-latest
     ports:
       - 8002:1433
@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: SOTags/Dockerfile
     ports:
-      - 8001:8080
+      - 8001:8090
     depends_on:
       - sotagsdb
     environment:
