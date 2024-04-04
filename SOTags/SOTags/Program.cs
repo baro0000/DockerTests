@@ -17,6 +17,13 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(o => o.AddPolicy("NUXT", builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+}));
+
 // Add services to the container.
 builder.Services
     .AddControllers()
@@ -52,7 +59,7 @@ builder.Services.AddSwaggerGen(c =>
             Description = "An API to get list of tags from Stack Overflow API",
             Contact = new OpenApiContact
             {
-                Name = "Bartosz Kuliñski",
+                Name = "Bartosz Kulinski",
                 Email = "bartosz.kulinski.it@gmail.com",
             }
         });
@@ -78,7 +85,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
+
+app.UseCors("NUXT");
 
 app.UseAuthorization();
 
